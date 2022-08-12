@@ -1,0 +1,123 @@
+.App {
+  text-align: center;
+  background-color: blue;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+button {
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #fcfcfc;
+  outline: #2ad22a solid 1px;
+}
+
+button:hover {
+  background-color: greenyellow;
+}
+
+input[type="text"] {
+  border-radius: 5px;
+  border-width: 1px;
+  height: 20px;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 20px;
+  margin: 10px;
+  
+}
+
+.sticker {
+  width: 270px;
+  height: 300px;
+  border: 1px solid black;
+  margin-bottom: 20px;
+  display: block;
+  border-radius: 5px 5px 50px 5px;
+}
+
+.stick1 {
+  background-color: aqua;
+}
+
+.stick2 {
+  background-color: rosybrown;
+}
+
+.stick3 {
+  background-color: rgb(247, 247, 130);
+}
+
+.tools {
+  background-color: #9ec862;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.delete {
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.text {
+  word-wrap:break-word;
+  cursor: pointer;
+  height: 90%;
+}
+
+.addStick {
+  position: absolute;
+  position: fixed;
+  top: 5px;
+  right: 5px;
+}
+
+.textarea {
+  resize: none;
+  margin-top: 8px;
+  width: 90%;
+  height: 85%;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
