@@ -6,7 +6,7 @@ export default function StickerLItem ({style, item: {description, id}, onSticker
             <textarea 
                 className="textarea"
                 onChange={onEditChange}
-                //onBlur={onShowModal}
+                onBlur={onShowModal}
                 defaultValue={description} 
                 onClick={(e) => {e.stopPropagation()}}
             />)

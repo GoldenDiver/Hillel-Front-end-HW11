@@ -15,7 +15,6 @@ export default function StickerList (){
     let styleStick = 0;
     const [edit, setEdit] = useState();
     const [newDescription, setNewDescription] = useState();
-    const [styleModal, setStyleModal] = useState("none");
     const [showModal, setShowModal] = useState(false);
     
     useEffect(() => {run()}, []);
@@ -67,31 +66,32 @@ export default function StickerList (){
     }
 
     function onModalStyle () {
-        if (showModal) {setStyleModal("block")} else {setStyleModal("none")}
+        const className = 'modal';
+        if (showModal) {
+            return (className + ' modalShow')
+        } else {
+            return (className + ' modalHide')
+        }
     }
 
     function onShowModal() {
         if(edit !== undefined) {
-            onModalStyle();
-            setShowModal(!showModal)
+            setShowModal(true);
         }
     }
 
     function onModalCancelClick () {
-        setShowModal(!showModal);
-        onModalStyle();
-        setEdit(undefined)
+        setShowModal(false);
+        setEdit(undefined);
     };
 
     function onModalSaveClick () {
-        setShowModal(!showModal);
-        onModalStyle ();
+        setShowModal(false);
         onSaveSticker(edit);
     }
 
     return (
         <div className="board">
-            
             {stickers.map((sticker) => (
             <StickerItem
                 style={stickStile()}
@@ -105,7 +105,7 @@ export default function StickerList (){
 
             />
             ))}
-            <div className="modal" style={{display: styleModal}}>
+            <div className={onModalStyle()}>
                 <div className="modal-content">
                     <p>Do you want save changes?</p>
                     <div className="modal-buttons">

@@ -103,6 +103,14 @@ input[type="text"] {
   background-color: rgba(0,0,0,0.4);
 }
 
+.modalShow {
+  display: block;
+}
+
+.modalHide {
+  display: none;
+}
+
 .modal-content {
   background-color: #fefefe;
   margin: auto;
