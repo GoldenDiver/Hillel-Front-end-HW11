@@ -1,7 +1,12 @@
+import axios from "axios";
 import { API_URL } from "../constants";
 
 export function getStickers() {
-  return fetch(API_URL).then((res) => res.json());
+  return (
+    axios
+      .get(API_URL)
+      .then(resp => resp.data)
+  )
 }
 
 export function createSticker(item) {

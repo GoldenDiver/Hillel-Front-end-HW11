@@ -15,7 +15,7 @@ export default function StickerList (){
     let styleStick = 0;
     const [edit, setEdit] = useState();
     const [newDescription, setNewDescription] = useState();
-    const [styleModal, setStyleModal] = useState({display: "none"});
+    const [styleModal, setStyleModal] = useState("none");
     const [showModal, setShowModal] = useState(false);
     
     useEffect(() => {run()}, []);
@@ -67,19 +67,19 @@ export default function StickerList (){
     }
 
     function onModalStyle () {
-        if (showModal) {setStyleModal({display: "block"})} else {setStyleModal({display: "none"})}
+        if (showModal) {setStyleModal("block")} else {setStyleModal("none")}
     }
 
     function onShowModal() {
         if(edit !== undefined) {
-            setShowModal(!showModal)
             onModalStyle();
+            setShowModal(!showModal)
         }
     }
 
     function onModalCancelClick () {
         setShowModal(!showModal);
-        onModalStyle ();
+        onModalStyle();
         setEdit(undefined)
     };
 
@@ -91,6 +91,7 @@ export default function StickerList (){
 
     return (
         <div className="board">
+            
             {stickers.map((sticker) => (
             <StickerItem
                 style={stickStile()}
@@ -104,11 +105,13 @@ export default function StickerList (){
 
             />
             ))}
-            <div className="modal" style={styleModal}>
+            <div className="modal" style={{display: styleModal}}>
                 <div className="modal-content">
                     <p>Do you want save changes?</p>
-                    <button onClick={onModalCancelClick}>Cancel</button>
-                    <button onClick={onModalSaveClick}>Save</button>
+                    <div className="modal-buttons">
+                        <button onClick={onModalCancelClick}>Cancel</button>
+                        <button onClick={onModalSaveClick}>Save</button>
+                    </div>
                 </div>
             </div>
             <button className="addStick" onClick={onAddStickerClick}>+ Add stick</button>

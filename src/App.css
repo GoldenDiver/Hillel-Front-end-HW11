@@ -61,7 +61,7 @@ input[type="text"] {
   border-radius: 5px 5px 0px 0px;
 }
 
-.delete {
+.Tools_Button {
   margin-right: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -78,6 +78,9 @@ input[type="text"] {
   position: fixed;
   top: 5px;
   right: 5px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
 }
 
 .textarea {
@@ -105,7 +108,15 @@ input[type="text"] {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 25%;
+}
+
+.modal-buttons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .close {

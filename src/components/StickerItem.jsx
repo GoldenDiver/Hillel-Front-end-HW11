@@ -1,19 +1,38 @@
 
 
 export default function StickerLItem ({style, item: {description, id}, onStickerClick, isEdit, onEditChange, onDeleteButtonClick, onShowModal}){
-    function editing () {
-        return (
-            isEdit===id) ? (
+    function editing() {
+        if (isEdit===id) {return (
             <textarea 
                 className="textarea"
                 onChange={onEditChange}
-                onBlur={onShowModal}
+                //onBlur={onShowModal}
                 defaultValue={description} 
                 onClick={(e) => {e.stopPropagation()}}
-            />) : (description)
+            />)
+        } else {
+             
+            return (description)
+        }
     }
 
-    function editClick () {
+    function buttonSaveClose() {
+        return (
+            <button 
+                className="Tools_Button"
+                onClick={onShowModal}
+                style={{display: buttonSaveCloseShow()}}
+                >
+                Save/Cancel
+            </button>
+        )
+    }
+
+    function buttonSaveCloseShow() {
+        if (isEdit===id) {return "block"} else {return "none"};
+    }
+
+    function editClick() {
         onStickerClick(id, description);
     }
 
@@ -23,17 +42,17 @@ export default function StickerLItem ({style, item: {description, id}, onSticker
     }
 
     return (
-        <div 
-            className={style}
-            >
+        <div className={style}>
             <div className="tools">
+                {buttonSaveClose()}
                 <button 
-                    className="delete"
+                    className="Tools_Button"
                     onClick={deleteClick}>
                     X
                 </button>
             </div>
-            <div className="text" 
+            <div 
+                className="text" 
                 onClick={editClick}
                 >
                 {editing()}
